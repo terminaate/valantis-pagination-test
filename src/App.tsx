@@ -1,3 +1,9 @@
+import { Products } from 'src/components/Products';
+
 export const App = () => {
-  return <div></div>;
+  return (
+    <>
+      <Products />
+    </>
+  );
 };
