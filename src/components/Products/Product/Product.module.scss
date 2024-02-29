@@ -1,0 +1,31 @@
+.productContainer {
+  background: var(--background-secondary);
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  min-height: 150px;
+  max-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  //row-gap: 5px;
+
+  .titleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    .productName {
+      font-weight: 500;
+      font-size: 15px;
+      font-family: var(--font-primary);
+    }
+
+    .id {
+      font-family: var(--font-secondary);
+      color: var(--text-secondary);
+    }
+  }
+}
+

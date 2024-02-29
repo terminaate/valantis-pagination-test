@@ -8,9 +8,9 @@
 
 :root {
     --background-primary: #222;
-    --background-secondary: #121;
+    --background-secondary: #1a1a1a;
     --text-primary: #fff;
-    --text-secondary: rgba(255, 255, 255, 0.6);
+    --text-secondary: rgba(255, 255, 255, 0.5);
     --font-primary: 'Work Sans', sans-serif;
     --font-secondary: monospace;
 }
@@ -19,4 +19,5 @@ body {
     background-color: var(--background-primary);
     color: var(--text-primary);
     font-family: var(--font-primary);
+    overflow-x: hidden;
 }

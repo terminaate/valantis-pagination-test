@@ -1,16 +1,13 @@
 import cl from './Products.module.scss';
-import { ProductsService } from '@/services/ProductsService.ts';
-import { useRequest } from '@/hooks/useRequest.ts';
-import { ProductType } from '@/types/ProductType.ts';
-import { Product } from '../Product';
+import { Product } from './Product';
+import { useProductsData } from '@/contexts/ProductsContext';
+import { GlobalLoader } from '@/components/GlobalLoader';
 
 export const Products = () => {
-  const [isLoading, products, reFetchProducts] = useRequest<ProductType[]>(() =>
-    ProductsService.getProducts(),
-  );
+  const [isLoading, products] = useProductsData();
 
   if (isLoading) {
-    return <div>loading...</div>;
+    return <GlobalLoader />;
   }
 
   return (

@@ -14,7 +14,7 @@ type DoneReturn<T> = [
   Dispatch<SetStateAction<T | undefined>>,
 ];
 
-type UseRequestReturn<T> = LoadingReturn | DoneReturn<T>;
+export type UseRequestReturn<T> = LoadingReturn | DoneReturn<T>;
 
 export const useRequest = <T>(cb: () => Promise<T>): UseRequestReturn<T> => {
   const [response, setResponse] = useState<T>();
