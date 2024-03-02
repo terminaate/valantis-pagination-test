@@ -1,15 +1,21 @@
-import { createContext } from 'react';
-import { UseRequestReturn } from '@/hooks/useRequest.ts';
+import { createContext, Dispatch, SetStateAction } from 'react';
 import { ProductType } from '@/types/ProductType.ts';
 import { ProductsFilters } from '@/types/ProductsFilters.ts';
 
+type ProductsLoading = [true, undefined, Dispatch<SetStateAction<undefined>>];
+
+type ProductsDone = [
+  false,
+  ProductType[],
+  Dispatch<SetStateAction<ProductType[]>>,
+];
+
+export type ProductsData = ProductsLoading | ProductsDone;
+
 export type ProductsContext = {
   filters: ProductsFilters;
-  setFilters: (
-    key: keyof ProductsFilters,
-    value: ProductsFilters[keyof ProductsFilters],
-  ) => void;
-  data: UseRequestReturn<ProductType[]>;
+  setFilters: (newState: Partial<ProductsFilters>) => void;
+  data: ProductsData;
 };
 
 export const productsContext = createContext<ProductsContext>({
@@ -19,5 +25,5 @@ export const productsContext = createContext<ProductsContext>({
     product: '',
   },
   setFilters: () => undefined,
-  data: [false, [], () => undefined, () => undefined],
+  data: [false, [], () => undefined],
 });

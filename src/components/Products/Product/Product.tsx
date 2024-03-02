@@ -17,7 +17,7 @@ export const Product: FC<ProductType> = ({
         <h4 className={cl.productName}>{productName}</h4>
         <span className={cl.id}>{id}</span>
       </div>
-      <span>{String(brand)}</span>
+      {brand && <span>{brand}</span>}
       <span>{formatPrice(price, '.')}</span>
     </div>
   );
